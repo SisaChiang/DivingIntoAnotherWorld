@@ -7,7 +7,7 @@ public class RacastingInput : MonoBehaviour {
 
 	SpriteRenderer diveSprite;
 
-	public Text guiText;
+	public Text theText;
 
 
 	// Use this for initialization
@@ -26,18 +26,18 @@ public class RacastingInput : MonoBehaviour {
 		// the ray has hit something with a collider on it
 			if (rayCastHit.collider.tag == "DiveEquipments") { // check if the name of the collider matches what we are looking for
 				diveSprite.color = Color.blue; // we know are the dive sprites that changes the color.
-				guiText.text = rayCastHit.collider.tag + "Dive Equipment has been hit";
+				theText.text = rayCastHit.collider.tag + "Dive Equipment has been hit";
 			} 
 			else {
 				diveSprite.color = Color.white;
-				guiText.text = "Something has been hit but it not the diving equipments";
+				theText.text = "Something has been hit but it not the diving equipments";
 			}
 
 		}
 		else {
 
 			diveSprite.color = Color.white;
-			guiText.text = "Nothing hit";
+			theText.text = "Nothing hit";
 		}
 
 	}

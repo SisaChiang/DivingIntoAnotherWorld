@@ -11,3 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainScene.unity
     guid: 88771abf13e29455698d20874ec5953e
+  - enabled: 1
+    path: Assets/MainMenu.unity
+    guid: 78ed127b6bc05473cb6b95397eb31050
+  - enabled: 1
+    path: Assets/Instructions.unity
+    guid: 501d6484494f74df69088051c3452d90
+  - enabled: 1
+    path: Assets/Story.unity
+    guid: 046b08f18843947cba06007f9de79779

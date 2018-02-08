@@ -6,12 +6,16 @@ using UnityEngine.UI;
 
 public class TickingClock : MonoBehaviour {
 
+	SpriteRenderer diveSprite;
+
 
 	float timeLeft = 5.0f; 
 	public Text text; 
 
 	// Use this for initialization
 	void start () {
+
+
 		
 	}
 	
