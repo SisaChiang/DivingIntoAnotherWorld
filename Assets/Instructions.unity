@@ -291,7 +291,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "1. Use WASD to move the player\n2. Use Mouse to click and collect diving
     equipments \n(So you can stay longer under water)\n3. Avoid Shark or dangerous
-    looking creatures\n4. Avoid dangerious places\n\n\n\nHint: \nTHERE ARE TREASURES
+    looking creatures\n4. Avoid dangerous places\n\n\n\nHint: \nTHERE ARE TREASURES
     HERE \nUNDER THE SEA"
 --- !u!222 &89155106
 CanvasRenderer:

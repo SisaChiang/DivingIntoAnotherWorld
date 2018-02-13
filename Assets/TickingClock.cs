@@ -6,16 +6,13 @@ using UnityEngine.UI;
 
 public class TickingClock : MonoBehaviour {
 
-	SpriteRenderer diveSprite;
 
 
-	float timeLeft = 5.0f; 
+	public float timeLeft = 10.0f; 
 	public Text text; 
 
 	// Use this for initialization
 	void start () {
-
-
 		
 	}
 	
@@ -25,6 +22,9 @@ public class TickingClock : MonoBehaviour {
 		text.text = "Time Left:" + timeLeft.ToString("####");
 		if (timeLeft <= 0) {
 			SceneManager.LoadScene ("GameOver");
+		}
+		if (timeLeft < 5) {
+			text.text = "Warning:" + timeLeft.ToString ("####"); 
 		}
 			
 	}

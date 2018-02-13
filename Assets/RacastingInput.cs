@@ -18,7 +18,7 @@ public class RacastingInput : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
 
 		RaycastHit2D rayCastHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero); // same as new Vector2 (0,0)
 
@@ -40,5 +40,5 @@ public class RacastingInput : MonoBehaviour {
 			theText.text = "Nothing hit";
 		}
 
-	}
+	}*/
 }
