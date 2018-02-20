@@ -24,6 +24,7 @@ public class canvasManager : MonoBehaviour {
 	public void OnButtonPressed(){
 		Debug.Log ("The button is Pressed!");
 		SceneManager.LoadScene ("MainScene");
+		TickingClock.score = 0;
 	}
 
 	public void OnButtonPressed2(){

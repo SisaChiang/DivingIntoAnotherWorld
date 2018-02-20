@@ -5,23 +5,32 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour {
 
-	public GameObject fishPrefab;
-	public static int tankSize = 5;
+	bool isIdle = true;
+	Vector3 targetPos;
+	Vector2 newTarget;
+	public float speed = 0.5f;
 
-	static int numFish = 10;
+	public GameObject fishPrefab;
+
+	static int numFish = 20;
 	public static GameObject[] allFish = new GameObject[numFish];
 
 
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i < numFish; i++) {
-			Vector3 pos = new Vector3 (Random.Range (-tankSize, tankSize), Random.Range (-tankSize, tankSize), Random.Range (-tankSize, tankSize));
-			allFish [i] = (GameObject)Instantiate (fishPrefab, pos, Quaternion.identity);
+			targetPos = new Vector2 (Random.Range(-10f,10f), Random.Range(-10f,10f));
+			allFish [i] = (GameObject)Instantiate (fishPrefab, targetPos, Quaternion.identity);
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		for (int i = 0; i < numFish; i++) {
+			newTarget = (Vector2)allFish [i].transform.position + new Vector2 (Random.Range (-5f, 5f), Random.Range (-5f, 5f));
+			Vector2 direction = (newTarget - (Vector2)transform.position).normalized;
+			allFish [i].transform.position += (Vector3)direction * speed * Time.deltaTime;
+		}
+
 	}
 }

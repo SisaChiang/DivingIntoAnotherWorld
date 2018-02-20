@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
 	public Text scoreText;
 	public static int score = 0;
 
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -38,8 +40,8 @@ public class Player : MonoBehaviour {
 
 			spriteRenderer.flipX = true;
 		}
-//		scoreText.text = "Current Time:" + score;
-//		score += Time.deltaTime; 
+		scoreText.text = "Current Time:" + score;
+		score += Time.deltaTime; 
 
 
 		

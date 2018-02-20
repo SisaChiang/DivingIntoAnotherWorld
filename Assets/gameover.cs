@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class gameover : MonoBehaviour {
 
+
+	public float highscore;
 	public Text scoreText;
 
 	// Use this for initialization
 	void Start () {
-		
+
+		highscore = PlayerPrefs.GetFloat(TickingClock.highscoreKey);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-//		scoreText.text = "Best Time:" + Player.score;
+		Debug.Log (highscore);
+		scoreText.text = "Best Time:" + highscore.ToString("####");
 	}
 }
