@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
 	public float speed = 1.5f;
 
 	SpriteRenderer spriteRenderer;
+
+	public Text scoreText;
+	public static int score = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +38,8 @@ public class Player : MonoBehaviour {
 
 			spriteRenderer.flipX = true;
 		}
+//		scoreText.text = "Current Time:" + score;
+//		score += Time.deltaTime; 
 
 
 		

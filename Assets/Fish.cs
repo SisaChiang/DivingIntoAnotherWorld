@@ -5,20 +5,23 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour {
 
-	public float speed = 0.8f;
+	public GameObject fishPrefab;
+	public static int tankSize = 5;
 
-	SpriteRenderer spriteRenderer; 
+	static int numFish = 10;
+	public static GameObject[] allFish = new GameObject[numFish];
+
 
 	// Use this for initialization
 	void Start () {
-
-		spriteRenderer = GetComponent<SpriteRenderer> ();
-		
+		for (int i = 0; i < numFish; i++) {
+			Vector3 pos = new Vector3 (Random.Range (-tankSize, tankSize), Random.Range (-tankSize, tankSize), Random.Range (-tankSize, tankSize));
+			allFish [i] = (GameObject)Instantiate (fishPrefab, pos, Quaternion.identity);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += Vector3.right * speed * Time.deltaTime;
-		spriteRenderer.flipX = true;
+		
 	}
 }

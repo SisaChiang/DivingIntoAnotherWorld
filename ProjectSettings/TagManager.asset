@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DiveEquipments
   - DangerousThings
+  - DangerousCreatures
   layers:
   - Default
   - TransparentFX

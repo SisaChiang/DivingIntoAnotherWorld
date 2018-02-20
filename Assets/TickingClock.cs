@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class TickingClock : MonoBehaviour {
 
-
+	public static int score = 0;
 
 	public float timeLeft = 10.0f; 
 	public Text text; 
 
 	// Use this for initialization
 	void start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -23,7 +23,7 @@ public class TickingClock : MonoBehaviour {
 		if (timeLeft <= 0) {
 			SceneManager.LoadScene ("GameOver");
 		}
-		if (timeLeft < 5) {
+		if (timeLeft <= 5) {
 			text.text = "Warning:" + timeLeft.ToString ("####"); 
 		}
 			
