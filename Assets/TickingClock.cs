@@ -35,7 +35,7 @@ public class TickingClock : MonoBehaviour {
 		if (timeLeft > 0) {
 			score += Time.deltaTime;
 		}	
-		Scoretext.text = "Score:" + score.ToString("####");
+		Scoretext.text = "Current time:" + score.ToString("####");
 		if (score > highScore) {
 			PlayerPrefs.SetFloat (highscoreKey, score);
 			PlayerPrefs.Save();

@@ -24,24 +24,23 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey (KeyCode.UpArrow)) {
 			transform.position += Vector3.up * speed * Time.deltaTime;
 		}
-		if (Input.GetKey (KeyCode.A)) {
+		if (Input.GetKey (KeyCode.LeftArrow)) {
 			transform.position += Vector3.left * speed * Time.deltaTime;
 
 			spriteRenderer.flipX = false;
 		}
-		if (Input.GetKey (KeyCode.S)) {
+		if (Input.GetKey (KeyCode.DownArrow)) {
 			transform.position += Vector3.down * speed * Time.deltaTime;
 		}
-		if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey (KeyCode.RightArrow)) {
 			transform.position += Vector3.right * speed * Time.deltaTime;
 
 			spriteRenderer.flipX = true;
 		}
-		scoreText.text = "Current Time:" + score;
-		score += Time.deltaTime; 
+		 
 
 
 		

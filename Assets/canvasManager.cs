@@ -29,6 +29,7 @@ public class canvasManager : MonoBehaviour {
 
 	public void OnButtonPressed2(){
 		SceneManager.LoadScene ("MainScene");
+		TickingClock.score = 0;
 	}
 
 	public void OnButtonPressed3(){
@@ -37,6 +38,7 @@ public class canvasManager : MonoBehaviour {
 
 	public void GameOverbutton(){
 		SceneManager.LoadScene ("MainMenu");
+		TickingClock.score = 0;
 	}
 
 	public void StorybuttonPressed(){
