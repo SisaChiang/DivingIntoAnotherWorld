@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Equipment : MonoBehaviour {
 
 	SpriteRenderer spriteRenderer;
-	public TickingClock timer;
+	//public TickingClock timer;
 	bool isIdle = true;
 	Vector3 targetPos;
 	float speed = 1.5f;
@@ -14,8 +14,8 @@ public class Equipment : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		timer = GameObject.FindWithTag ("Player").GetComponent<TickingClock>();
-		spriteRenderer = GetComponent <SpriteRenderer> ();
+		//timer = GameObject.FindWithTag ("Player").GetComponent<TickingClock>();
+		//spriteRenderer = GetComponent <SpriteRenderer> ();
 
 	}
 	
@@ -25,7 +25,7 @@ public class Equipment : MonoBehaviour {
 			if (isIdle == true) {
 				targetPos = new Vector3 (Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f));
 				isIdle = false;
-				Debug.Log (targetPos);
+				//Debug.Log (targetPos);
 			}
 			else {
 				Vector3 direction = (targetPos-transform.position).normalized;
@@ -40,7 +40,7 @@ public class Equipment : MonoBehaviour {
 			if (isIdle == true) {
 				targetPos = new Vector3 (Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f));
 				isIdle = false;
-				Debug.Log (targetPos);
+				//Debug.Log (targetPos);
 			}
 			else {
 				Vector3 direction = (targetPos-transform.position).normalized;
@@ -55,7 +55,7 @@ public class Equipment : MonoBehaviour {
 			if (isIdle == true) {
 				targetPos = new Vector3 (Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f));
 				isIdle = false;
-				Debug.Log (targetPos);
+				//Debug.Log (targetPos);
 			}
 			else {
 				Vector3 direction = (targetPos-transform.position).normalized;
@@ -67,24 +67,17 @@ public class Equipment : MonoBehaviour {
 			}
 		}
 	}
-
 
 	void OnMouseDown(){
-		if (this.tag == "DiveEquipments") {
-			Destroy (this.gameObject);
-			timer.timeLeft += 5.0f;
-		}
 		if (this.tag == "DangerousThings") {
 			//Destroy (GameObject.FindGameObjectWithTag("Player")); TO destory the player when I click on this stuff
-			SceneManager.LoadScene ("GameOver");
+			Destroy (this.gameObject);
 		}
 		if (this.tag == "DangerousCreatures") {
 			Destroy (this.gameObject);
-			timer.timeLeft -= 5.0f;
 		}
 
 	}
-
 
 		
 }

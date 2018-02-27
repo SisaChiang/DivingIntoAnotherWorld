@@ -5,16 +5,16 @@ using UnityEngine.UI; // inputing the UI library
 
 public class RacastingInput : MonoBehaviour {
 
-	SpriteRenderer diveSprite;
+	//SpriteRenderer diveSprite;
 
-	public Text theText;
+	//public Text theText;
 
 
 	// Use this for initialization
 	// USE THIS IF NEEDED, MOUSE OVER OBJECTS
 	void Start () {
 
-		diveSprite = GetComponent<SpriteRenderer> ();
+		//diveSprite = GetComponent<SpriteRenderer> ();
 	}
 	
 	// Update is called once per frame

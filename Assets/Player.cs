@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour {
 
-	public float speed = 1.5f;
+	public float speed = 1.8f;
 
 	SpriteRenderer spriteRenderer;
+	public TickingClock timer;
+
 
 	public Text scoreText;
 	public static int score = 0;
@@ -16,7 +20,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		timer =  this.GetComponent<TickingClock>();
 		spriteRenderer = GetComponent <SpriteRenderer> ();
 		
 	}
@@ -40,9 +44,35 @@ public class Player : MonoBehaviour {
 
 			spriteRenderer.flipX = true;
 		}
-		 
 
+		if (transform.position.x >= 20f) {
+			transform.position = new Vector3 (20, transform.position.y, transform.position.z);
+		}
+		if (transform.position.x <= -20f) {
+			transform.position = new Vector3(-20,transform.position.y,transform.position.z);
+		}
+		if (transform.position.y >= 20f) {
+			transform.position = new Vector3(transform.position.x,20,transform.position.z);
+		}
+		if (transform.position.y <= -20f) {
+			transform.position = new Vector3(transform.position.x, -20, transform.position.z);
+		}
 
-		
 	}
+	void OnTriggerEnter2D(Collider2D CollisionInfo){
+		if (CollisionInfo.gameObject.tag == "DiveEquipments") {
+			Destroy (CollisionInfo.gameObject);
+			timer.timeLeft += 5.0f;
+		}
+		if (CollisionInfo.gameObject.tag == "DangerousThings") {
+			//Destroy (GameObject.FindGameObjectWithTag("Player")); TO destory the player when I click on this stuff
+			SceneManager.LoadScene ("GameOver");
+		}
+		if (CollisionInfo.gameObject.tag == "DangerousCreatures") {
+			Destroy (CollisionInfo.gameObject);
+			timer.timeLeft-= 5.0f;
+		}
+		Debug.Log ("Collidedddddd!");
+
+	}	
 }
