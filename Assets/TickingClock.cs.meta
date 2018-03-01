@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: 1765b0c94f3084f038fda19089435173
-timeCreated: 1517932984
+timeCreated: 1519931178
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sharkPrefab: {fileID: 1225019650562534, guid: 9d5dc1dc833d944088a09f236a38667a,
+      type: 2}
+  - text: {instanceID: 0}
+  - Scoretext: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

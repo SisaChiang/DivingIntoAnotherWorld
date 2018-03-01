@@ -10,6 +10,7 @@ public class Equipment : MonoBehaviour {
 	bool isIdle = true;
 	Vector3 targetPos;
 	float speed = 1.5f;
+	float speed2 = 2.0f;
 
 
 	// Use this for initialization
@@ -23,7 +24,7 @@ public class Equipment : MonoBehaviour {
 	void Update () {
 		if (this.tag == "DiveEquipments") {
 			if (isIdle == true) {
-				targetPos = new Vector3 (Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f));
+				targetPos = new Vector3 (Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f));
 				isIdle = false;
 				//Debug.Log (targetPos);
 			}
@@ -38,7 +39,7 @@ public class Equipment : MonoBehaviour {
 		}
 		if (this.tag == "DangerousThings") {
 			if (isIdle == true) {
-				targetPos = new Vector3 (Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f));
+				targetPos = new Vector3 (Random.Range(-20.6f,20.6f),Random.Range(-20.6f,20.6f),Random.Range(-20.6f,20.6f));
 				isIdle = false;
 				//Debug.Log (targetPos);
 			}
@@ -53,31 +54,35 @@ public class Equipment : MonoBehaviour {
 		}
 		if (this.tag == "DangerousCreatures") {
 			if (isIdle == true) {
-				targetPos = new Vector3 (Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f));
+				targetPos = new Vector3 (Random.Range(-20.6f,15.6f),Random.Range(-20.6f,20.6f),Random.Range(-20.6f,20.6f));
 				isIdle = false;
 				//Debug.Log (targetPos);
 			}
 			else {
 				Vector3 direction = (targetPos-transform.position).normalized;
-				Vector3 nextPos = transform.position + direction*speed*Time.deltaTime;
+				Vector3 nextPos = transform.position + direction*speed2*Time.deltaTime;
 				transform.position = nextPos;
-				if (Vector3.Distance(transform.position,targetPos)<speed) {
+				if (Vector3.Distance(transform.position,targetPos)<speed2) {
 					isIdle = true;
 				}
 			}
 		}
-	}
 
-	void OnMouseDown(){
-		if (this.tag == "DangerousThings") {
-			//Destroy (GameObject.FindGameObjectWithTag("Player")); TO destory the player when I click on this stuff
-			Destroy (this.gameObject);
+		if (this.tag == "AttackEquipments") {
+			if (isIdle == true) {
+				targetPos = new Vector3 (Random.Range(-20.6f,15.6f),Random.Range(-20.6f,20.6f),Random.Range(-20.6f,20.6f));
+				isIdle = false;
+				//Debug.Log (targetPos);
+			}
+			else {
+				Vector3 direction = (targetPos-transform.position).normalized;
+				Vector3 nextPos = transform.position + direction*speed2*Time.deltaTime;
+				transform.position = nextPos;
+				if (Vector3.Distance(transform.position,targetPos)<speed2) {
+					isIdle = true;
+				}
+			}
 		}
-		if (this.tag == "DangerousCreatures") {
-			Destroy (this.gameObject);
-		}
 
 	}
-
-		
 }

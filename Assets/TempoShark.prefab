@@ -9,43 +9,81 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1619548041100872}
+  m_RootGameObject: {fileID: 1225019650562534}
   m_IsPrefabParent: 1
---- !u!1 &1619548041100872
+--- !u!1 &1225019650562534
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4675459710197864}
-  - component: {fileID: 212655304992212836}
+  - component: {fileID: 4839957975044326}
+  - component: {fileID: 212164808582542996}
+  - component: {fileID: 114673916612068892}
+  - component: {fileID: 61098907259277156}
   m_Layer: 0
-  m_Name: TempoFish
-  m_TagString: Untagged
+  m_Name: TempoShark
+  m_TagString: DangerousCreatures
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4675459710197864
+--- !u!4 &4839957975044326
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619548041100872}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.264, y: 2.323, z: 0}
-  m_LocalScale: {x: 0.08990822, y: 0.09301146, z: 0.1405101}
+  m_GameObject: {fileID: 1225019650562534}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.3, y: 9.95, z: 0.19700234}
+  m_LocalScale: {x: 0.60624266, y: 0.5916591, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &212655304992212836
+--- !u!61 &61098907259277156
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225019650562534}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.9, y: 2.9}
+    newSize: {x: 2.9, y: 2.9}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9, y: 2.9}
+  m_EdgeRadius: 0
+--- !u!114 &114673916612068892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225019650562534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3422f83e4de4dd791ac0b3c45fdc55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &212164808582542996
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619548041100872}
+  m_GameObject: {fileID: 1225019650562534}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,12 +112,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 763ccfc9e6f5f45dbafce046de75024a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 344ec36ae556d4bb59cb88f7efcb2edc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 12, y: 15.04}
+  m_Size: {x: 2.9, y: 2.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

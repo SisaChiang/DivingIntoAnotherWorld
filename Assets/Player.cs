@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
+	public Sprite player; 
 	public float speed = 1.8f;
 
 	SpriteRenderer spriteRenderer;
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour {
 	public Text scoreText;
 	public static int score = 0;
 
+	public Sprite Attackplayer;
+	float AttackTimeLeft;
 
 
 	// Use this for initialization
@@ -45,34 +48,64 @@ public class Player : MonoBehaviour {
 			spriteRenderer.flipX = true;
 		}
 
-		if (transform.position.x >= 20f) {
-			transform.position = new Vector3 (20, transform.position.y, transform.position.z);
+		if (transform.position.x >= 25f) {
+			transform.position = new Vector3 (25, transform.position.y, transform.position.z);
 		}
-		if (transform.position.x <= -20f) {
-			transform.position = new Vector3(-20,transform.position.y,transform.position.z);
+		if (transform.position.x <= -25f) {
+			transform.position = new Vector3(-25,transform.position.y,transform.position.z);
 		}
-		if (transform.position.y >= 20f) {
-			transform.position = new Vector3(transform.position.x,20,transform.position.z);
+		if (transform.position.y >= 25f) {
+			transform.position = new Vector3(transform.position.x,25,transform.position.z);
 		}
-		if (transform.position.y <= -20f) {
-			transform.position = new Vector3(transform.position.x, -20, transform.position.z);
+		if (transform.position.y <= -25f) {
+			transform.position = new Vector3(transform.position.x, -25, transform.position.z);
 		}
 
+		AttackTimeLeft -= Time.deltaTime;
+		if (AttackTimeLeft <= 0) {
+			spriteRenderer.sprite = player;
+		}
 	}
+
+	// here below are the codes for colliding with equipments. Not equipment movement.
 	void OnTriggerEnter2D(Collider2D CollisionInfo){
-		if (CollisionInfo.gameObject.tag == "DiveEquipments") {
-			Destroy (CollisionInfo.gameObject);
-			timer.timeLeft += 5.0f;
+		if (CollisionInfo.gameObject.tag == "DiveEquipments" && spriteRenderer.sprite != Attackplayer) {
+			timer.timeLeft += 3.0f;
+			//Destroy (CollisionInfo.gameObject); //other than destory, just change the position of it. 
+			CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f));
 		}
 		if (CollisionInfo.gameObject.tag == "DangerousThings") {
-			//Destroy (GameObject.FindGameObjectWithTag("Player")); TO destory the player when I click on this stuff
-			SceneManager.LoadScene ("GameOver");
+			if (spriteRenderer.sprite == Attackplayer) {
+				Destroy (CollisionInfo.gameObject);
+			} 
+			else {
+				//Destroy (GameObject.FindGameObjectWithTag("Player")); TO destory the player when I click on this stuff
+				SceneManager.LoadScene ("GameOver");
+				CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range (-15.6f, 15.6f), Random.Range (-15.6f, 15.6f), Random.Range (-15.6f, 15.6f));
+			}
 		}
 		if (CollisionInfo.gameObject.tag == "DangerousCreatures") {
-			Destroy (CollisionInfo.gameObject);
-			timer.timeLeft-= 5.0f;
-		}
-		Debug.Log ("Collidedddddd!");
+			if (spriteRenderer.sprite == Attackplayer) {
+				Destroy (CollisionInfo.gameObject);
+			} 
 
-	}	
+			else {
+				Destroy (CollisionInfo.gameObject);
+				timer.timeLeft -= 5.0f;
+				CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range (-15.6f, 15.6f), Random.Range (-15.6f, 15.6f), Random.Range (-15.6f, 15.6f));
+			}
+	    }
+		Debug.Log ("Collidedddddd!");
+		if (CollisionInfo.gameObject.tag == ("AttackEquipments")) {
+			spriteRenderer.sprite = Attackplayer;
+			CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f));
+			AttackTimeLeft = 5.0f;
+		}
+
+
+	}
+
+
+
+
 }
