@@ -83,6 +83,20 @@ public class Equipment : MonoBehaviour {
 				}
 			}
 		}
+		if (this.tag == "Treasure") {
+			if (isIdle == true) {
+				targetPos = new Vector3 (Random.Range (-2.6f, 2.6f), Random.Range (-2.6f, 2.6f), Random.Range (-2.6f, 2.6f));
+				isIdle = false;
+				//Debug.Log (targetPos);
+			} else {
+				Vector3 direction = (targetPos - transform.position).normalized;
+				Vector3 nextPos = transform.position + direction * speed2 * Time.deltaTime;
+				transform.position = nextPos;
+				if (Vector3.Distance (transform.position, targetPos) < speed2) {
+					isIdle = true;
+				}
+			}
+		}
 
 	}
 }

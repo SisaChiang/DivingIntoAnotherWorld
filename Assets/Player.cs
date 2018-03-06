@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour {
 
 	public Sprite player; 
-	public float speed = 1.8f;
+	public float speed = 2.0f;
 
 	SpriteRenderer spriteRenderer;
 	public TickingClock timer;
@@ -100,6 +100,9 @@ public class Player : MonoBehaviour {
 			spriteRenderer.sprite = Attackplayer;
 			CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f));
 			AttackTimeLeft = 5.0f;
+		}
+		if (CollisionInfo.gameObject.tag == ("Treasure")) {
+			SceneManager.LoadScene ("WinScene");
 		}
 
 

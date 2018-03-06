@@ -8,6 +8,7 @@ TagManager:
   - DangerousThings
   - DangerousCreatures
   - AttackEquipments
+  - Treasure
   layers:
   - Default
   - TransparentFX

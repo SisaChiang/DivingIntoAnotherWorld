@@ -48,5 +48,13 @@ public class canvasManager : MonoBehaviour {
 	public void LeadtoStorybutton(){
 		SceneManager.LoadScene ("Story");
 	}
+
+	public void WinPageButton1(){
+		SceneManager.LoadScene ("MainMenu");
+	}
+
+	public void WinPageButton2(){
+		SceneManager.LoadScene ("MainScene");
+	}
 		
 }
