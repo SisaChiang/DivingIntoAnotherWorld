@@ -39,18 +39,18 @@ public class FishMananger : MonoBehaviour {
 			//Chose a new random desitination for the fish to go to 
 			//The new desitination is within a random range up 5 units away from the fishes
 			//current position
-			//newTarget = (Vector2)allFish [i].transform.position + new Vector2 (Random.Range (-8f, 8f), Random.Range (-8f, 8f));
-			//newTarget = (Vector2)allFish [i].transform.position + new Vector2 (-1,-1);
-			targetPos = new Vector3 (Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f));
+			newTarget = (Vector2)allFish [i].transform.position + new Vector2 (Random.Range (-8f, 8f), Random.Range (-8f, 8f));
+			newTarget = (Vector2)allFish [i].transform.position + new Vector2 (-1,-1);
+			/*targetPos = new Vector3 (Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f));
 			Vector3 direction = (targetPos-transform.position).normalized;
 			Vector3 nextPos = transform.position + direction*speed*Time.deltaTime;
-			transform.position = nextPos;
-			//Debug.Log ("new target" + newTarget);
-			//Vector2 heading = (newTarget - (Vector2)transform.position);
-			//float distance = heading.magnitude;
-			//Vector2 direction = heading / distance;
-			//Debug.Log (direction);
-			//allFish [i].transform.position += (Vector3)direction * speed * Time.deltaTime;
+			transform.position = nextPos;*/
+			Debug.Log ("new target" + newTarget);
+			Vector2 heading = (newTarget - (Vector2)transform.position);
+			float distance = heading.magnitude;
+			Vector2 direction = heading / distance;
+			Debug.Log (direction);
+			allFish [i].transform.position += (Vector3)direction * speed * Time.deltaTime;
 		}
 	}
 }

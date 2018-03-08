@@ -103,6 +103,7 @@ public class Player : MonoBehaviour {
 		}
 		if (CollisionInfo.gameObject.tag == ("Treasure")) {
 			SceneManager.LoadScene ("WinScene");
+			timer.timeLeft += 15.0f;
 		}
 
 

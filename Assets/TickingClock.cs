@@ -42,16 +42,17 @@ public class TickingClock : MonoBehaviour {
 			PlayerPrefs.SetFloat (highscoreKey, score);
 			PlayerPrefs.Save();
 		}
-		/*if (score > 30f) {
-
+		if (score > 30f && sharkSpawn < 7) {
+			
 			Instantiate (sharkPrefab, new Vector3 (Random.Range(-20.6f,15.6f),Random.Range(-20.6f,20.6f),Random.Range(-20.6f,20.6f)), Quaternion.identity);
 			sharkSpawn += 1;
+
 			if (score> 30f){
-				sharkSpawn = 10; 
+				sharkSpawn = 10;
 				Debug.Log ("yes");
 			}
 
-		}*/
+		}
 
 
 	}

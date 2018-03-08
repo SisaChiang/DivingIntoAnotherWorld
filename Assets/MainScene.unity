@@ -650,7 +650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1765b0c94f3084f038fda19089435173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharkPrefab: {fileID: 0}
+  sharkPrefab: {fileID: 1225019650562534, guid: 9d5dc1dc833d944088a09f236a38667a,
+    type: 2}
   timeLeft: 10
   text: {fileID: 1159209619}
   Scoretext: {fileID: 1985507418}
@@ -1538,7 +1539,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 51a2c573745ee464a88fdbcc83a865f0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -2142,7 +2143,7 @@ RectTransform:
   m_GameObject: {fileID: 1751745092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.010162601, y: 0.010162601, z: 0.010162601}
+  m_LocalScale: {x: 0.013482384, y: 0.013482384, z: 0.013482384}
   m_Children:
   - {fileID: 1159209618}
   - {fileID: 1985507417}
@@ -2748,7 +2749,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 51a2c573745ee464a88fdbcc83a865f0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
