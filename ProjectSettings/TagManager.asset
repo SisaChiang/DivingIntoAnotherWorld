@@ -9,6 +9,8 @@ TagManager:
   - DangerousCreatures
   - AttackEquipments
   - Treasure
+  - background
+  - buttons
   layers:
   - Default
   - TransparentFX

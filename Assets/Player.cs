@@ -20,6 +20,10 @@ public class Player : MonoBehaviour {
 	public Sprite Attackplayer;
 	float AttackTimeLeft;
 
+	public AudioSource pointsSound;
+	public AudioSource hurtSound;
+	public AudioSource hitSound;
+
 
 	// Use this for initialization
 	void Start () {
@@ -73,10 +77,12 @@ public class Player : MonoBehaviour {
 			timer.timeLeft += 3.0f;
 			//Destroy (CollisionInfo.gameObject); //other than destory, just change the position of it. 
 			CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f));
+			pointsSound.Play ();
 		}
 		if (CollisionInfo.gameObject.tag == "DangerousThings") {
 			if (spriteRenderer.sprite == Attackplayer) {
 				Destroy (CollisionInfo.gameObject);
+				hitSound.Play ();
 			} 
 			else {
 				//Destroy (GameObject.FindGameObjectWithTag("Player")); TO destory the player when I click on this stuff
@@ -87,12 +93,14 @@ public class Player : MonoBehaviour {
 		if (CollisionInfo.gameObject.tag == "DangerousCreatures") {
 			if (spriteRenderer.sprite == Attackplayer) {
 				Destroy (CollisionInfo.gameObject);
+				hitSound.Play ();
 			} 
 
 			else {
 				Destroy (CollisionInfo.gameObject);
 				timer.timeLeft -= 5.0f;
 				CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range (-15.6f, 15.6f), Random.Range (-15.6f, 15.6f), Random.Range (-15.6f, 15.6f));
+				hurtSound.Play ();
 			}
 	    }
 		Debug.Log ("Collidedddddd!");
@@ -100,10 +108,12 @@ public class Player : MonoBehaviour {
 			spriteRenderer.sprite = Attackplayer;
 			CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f));
 			AttackTimeLeft = 5.0f;
+			pointsSound.Play ();
 		}
 		if (CollisionInfo.gameObject.tag == ("Treasure")) {
 			SceneManager.LoadScene ("WinScene");
 			timer.timeLeft += 15.0f;
+			pointsSound.Play ();
 		}
 
 
