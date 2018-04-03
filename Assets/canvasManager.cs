@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class canvasManager : MonoBehaviour {
 
 	public Text myText;
+	public AudioSource button;
 
 	// Use this for initialization
 	void Start () {
@@ -18,43 +19,68 @@ public class canvasManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (button.isPlaying) {
+			Debug.Log ("PLaying");
+		}
 	}
 
 	public void OnButtonPressed(){
 		Debug.Log ("The button is Pressed!");
-		SceneManager.LoadScene ("MainScene");
+		button.PlayOneShot(button.clip);
+		StartCoroutine(ChangeScene("MainScene"));
+		//SceneManager.LoadScene ("MainScene");
 		TickingClock.score = 0;
+
 	}
 
 	public void OnButtonPressed2(){
-		SceneManager.LoadScene ("MainScene");
+		button.PlayOneShot(button.clip);
+		StartCoroutine(ChangeScene("MainScene"));
+		//SceneManager.LoadScene ("MainScene");
 		TickingClock.score = 0;
 	}
 
 	public void OnButtonPressed3(){
-		SceneManager.LoadScene ("Instructions");
+		button.PlayOneShot(button.clip);
+		StartCoroutine(ChangeScene("Instructions"));
+		//SceneManager.LoadScene ("Instructions");
 	}
 
 	public void GameOverbutton(){
-		SceneManager.LoadScene ("MainMenu");
+		button.PlayOneShot(button.clip);
+		StartCoroutine(ChangeScene("MainMenu"));
+		//SceneManager.LoadScene ("MainMenu");
 		TickingClock.score = 0;
 	}
 
 	public void StorybuttonPressed(){
-		SceneManager.LoadScene ("Instructions");
+		button.PlayOneShot(button.clip);
+		StartCoroutine(ChangeScene("Instructions"));
+		//SceneManager.LoadScene ("Instructions");
 	}
 
 	public void LeadtoStorybutton(){
-		SceneManager.LoadScene ("Story");
+		button.PlayOneShot(button.clip);
+		StartCoroutine(ChangeScene("Story"));
+		//SceneManager.LoadScene ("Story");
 	}
 
 	public void WinPageButton1(){
-		SceneManager.LoadScene ("MainMenu");
+		button.PlayOneShot(button.clip);
+		StartCoroutine(ChangeScene("MainMenu"));
+		//SceneManager.LoadScene ("MainMenu");
 	}
 
 	public void WinPageButton2(){
-		SceneManager.LoadScene ("MainScene");
+		button.PlayOneShot(button.clip);
+		StartCoroutine(ChangeScene("MainScene"));
+		//SceneManager.LoadScene ("MainScene");
 	}
 		
+	IEnumerator ChangeScene(string sceneName){
+		button.PlayOneShot (button.clip);
+		yield return new WaitForSeconds(0.5f);
+		SceneManager.LoadScene (sceneName);
+	}
+
 }
