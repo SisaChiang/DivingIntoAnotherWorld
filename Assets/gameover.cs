@@ -18,6 +18,6 @@ public class gameover : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Debug.Log (highscore);
-		scoreText.text = "You have been in water for:" + highscore.ToString("####");
+		scoreText.text = highscore.ToString("####")+ "  seconds";
 	}
 }
