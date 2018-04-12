@@ -8,7 +8,9 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour {
 
 	public Sprite player; 
-	public float speed = 2.0f;
+	public float attackSpeed = 5.0f; // this is the speed when the player has an attack object
+	public float normalSpeed = 2.0f; // this is the speed of the player without the attack object
+	float speed; // this will toggle between attackSpeed and normalSpeed depending on what the player has
 
 	SpriteRenderer spriteRenderer;
 	public TickingClock timer;
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		speed = normalSpeed;
 		timer =  this.GetComponent<TickingClock>();
 		spriteRenderer = GetComponent <SpriteRenderer> ();
 		
@@ -68,6 +71,7 @@ public class Player : MonoBehaviour {
 		AttackTimeLeft -= Time.deltaTime;
 		if (AttackTimeLeft <= 0) {
 			spriteRenderer.sprite = player;
+			speed = normalSpeed;
 		}
 	}
 
@@ -108,7 +112,9 @@ public class Player : MonoBehaviour {
 			spriteRenderer.sprite = Attackplayer;
 			CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f));
 			AttackTimeLeft = 5.0f;
+			speed = attackSpeed; // speed changes to the faster attack mode speed
 			pointsSound.Play ();
+
 		}
 		if (CollisionInfo.gameObject.tag == ("Treasure")) {
 			SceneManager.LoadScene ("WinScene");
@@ -118,8 +124,5 @@ public class Player : MonoBehaviour {
 
 
 	}
-
-
-
-
+		
 }
