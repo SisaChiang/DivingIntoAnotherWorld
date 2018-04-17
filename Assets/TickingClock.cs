@@ -27,17 +27,17 @@ public class TickingClock : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timeLeft -= Time.deltaTime;
-		text.text = "Time Left:" + timeLeft.ToString("####");
+		text.text = "Time left: " + timeLeft.ToString("####");
 		if (timeLeft <= 0) {
 			SceneManager.LoadScene ("GameOver");
 		}
 		if (timeLeft <= 5) {
-			text.text = "Warning:" + timeLeft.ToString ("####"); 
+			text.text = "Warning: " + timeLeft.ToString ("####"); 
 		}
 		if (timeLeft > 0) {
 			score += Time.deltaTime;
 		}	
-		Scoretext.text = "Current time:" + score.ToString("####");
+		Scoretext.text = "You've survived for: " + score.ToString("####");
 		if (score > highScore) {
 			PlayerPrefs.SetFloat (highscoreKey, score);
 			PlayerPrefs.Save();

@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 	public AudioSource hitSound;
 
 
+
 	// Use this for initialization
 	void Start () {
 		speed = normalSpeed;
@@ -78,7 +79,7 @@ public class Player : MonoBehaviour {
 	// here below are the codes for colliding with equipments. Not equipment movement.
 	void OnTriggerEnter2D(Collider2D CollisionInfo){
 		if (CollisionInfo.gameObject.tag == "DiveEquipments" && spriteRenderer.sprite != Attackplayer) {
-			timer.timeLeft += 3.0f;
+			timer.timeLeft += 5.0f;
 			//Destroy (CollisionInfo.gameObject); //other than destory, just change the position of it. 
 			CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f));
 			pointsSound.Play ();
@@ -109,6 +110,7 @@ public class Player : MonoBehaviour {
 	    }
 		Debug.Log ("Collidedddddd!");
 		if (CollisionInfo.gameObject.tag == ("AttackEquipments")) {
+			timer.timeLeft += 5.0f;
 			spriteRenderer.sprite = Attackplayer;
 			CollisionInfo.gameObject.transform.position = new Vector3 (Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f),Random.Range(-15.6f,15.6f));
 			AttackTimeLeft = 5.0f;
@@ -117,7 +119,8 @@ public class Player : MonoBehaviour {
 
 		}
 		if (CollisionInfo.gameObject.tag == ("Treasure")) {
-			SceneManager.LoadScene ("WinScene");
+			//SceneManager.LoadScene ("WinScene");
+			Destroy (CollisionInfo.gameObject);
 			timer.timeLeft += 15.0f;
 			pointsSound.Play ();
 		}
