@@ -56,7 +56,7 @@ public class Player : MonoBehaviour {
 			spriteRenderer.flipX = true;
 		}
 
-		if (transform.position.x >= 25f) {
+		/*if (transform.position.x >= 25f) {
 			transform.position = new Vector3 (25, transform.position.y, transform.position.z);
 		}
 		if (transform.position.x <= -25f) {
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour {
 		}
 		if (transform.position.y <= -25f) {
 			transform.position = new Vector3(transform.position.x, -25, transform.position.z);
-		}
+		}*/
 
 		AttackTimeLeft -= Time.deltaTime;
 		if (AttackTimeLeft <= 0) {
@@ -108,6 +108,32 @@ public class Player : MonoBehaviour {
 				hurtSound.Play ();
 			}
 	    }
+
+		if (CollisionInfo.gameObject.name == "UpBorders") {
+			GameObject downborder = GameObject.Find ("DownBorders");
+			Vector2 newposition = new Vector2 (downborder.transform.position.x, downborder.transform.position.y + 6f);
+			transform.position = newposition;
+		}
+
+		if (CollisionInfo.gameObject.name == "DownBorders") {
+			GameObject upborder = GameObject.Find ("UpBorders");
+			Vector2 newposition = new Vector2 (upborder.transform.position.x, upborder.transform.position.y - 6f);
+			transform.position = newposition;
+		}
+
+		if (CollisionInfo.gameObject.name == "LeftBorders") {
+			GameObject rightborder = GameObject.Find("RightBorders");
+			Vector2 newposition = new Vector2 (rightborder.transform.position.x - 6f, rightborder.transform.position.y);
+			transform.position = newposition;
+		}
+
+		if (CollisionInfo.gameObject.name == "RightBorders") {
+			GameObject leftborder = GameObject.Find ("LeftBorders");
+			Vector2 newposition = new Vector2 (leftborder.transform.position.x + 6f, leftborder.transform.position.y);
+			transform.position = newposition;
+		}
+
+
 		Debug.Log ("Collidedddddd!");
 		if (CollisionInfo.gameObject.tag == ("AttackEquipments")) {
 			timer.timeLeft += 5.0f;

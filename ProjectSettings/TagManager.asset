@@ -11,6 +11,8 @@ TagManager:
   - Treasure
   - background
   - buttons
+  - Borders
+  - Fish
   layers:
   - Default
   - TransparentFX

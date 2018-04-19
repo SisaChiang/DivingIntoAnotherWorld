@@ -20,5 +20,10 @@ public class CameraFollow : MonoBehaviour {
 	void LateUpdate () {
 
 		transform.position = player.transform.position + offset;
+
+		/*if (player.transform.position = GameObject.FindWithTag ("Borders")) {
+			transform.position
+		}*/
+
 	}
 }

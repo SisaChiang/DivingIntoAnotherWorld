@@ -14,6 +14,11 @@ public class FishMananger : MonoBehaviour {
 	public int numFish = 25;
 	public GameObject[] allFish ;
 
+	public float minY;
+	public float maxY;
+	public float minX;
+	public float maxX;
+
 	// Use this for initialization
 	void Start () {
 		allFish = new GameObject[numFish];
@@ -40,17 +45,25 @@ public class FishMananger : MonoBehaviour {
 			//The new desitination is within a random range up 5 units away from the fishes
 			//current position
 			newTarget = (Vector2)allFish [i].transform.position + new Vector2 (Random.Range (-8f, 8f), Random.Range (-8f, 8f));
-			newTarget = (Vector2)allFish [i].transform.position + new Vector2 (-1,-1);
-			/*targetPos = new Vector3 (Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f),Random.Range(-10.6f,10.6f));
-			Vector3 direction = (targetPos-transform.position).normalized;
-			Vector3 nextPos = transform.position + direction*speed*Time.deltaTime;
-			transform.position = nextPos;*/
-			Debug.Log ("new target" + newTarget);
+			//newTarget = (Vector2)allFish [i].transform.position + new Vector2 (-1,-1);
+
+			Debug.Log ("new target " + i+ " " + newTarget);
 			Vector2 heading = (newTarget - (Vector2)transform.position);
 			float distance = heading.magnitude;
 			Vector2 direction = heading / distance;
 			Debug.Log (direction);
-			allFish [i].transform.position += (Vector3)direction * speed * Time.deltaTime;
+
+			Vector2 newPos = allFish [i].transform.position + (Vector3)direction * speed * Time.deltaTime;
+			if (newPos.x > maxX || newPos.x < minX) {
+				direction.x = -direction.x;
+				Debug.Log ("switch x");
+			}
+			if (newPos.y > maxY || newPos.y < minY) {
+				direction.y = -direction.y;
+				Debug.Log ("switch y");
+			}
+			allFish [i].transform.position += ((Vector3)direction * speed + ((Vector3)newPos -allFish [i].transform.position)) * Time.deltaTime;
+
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameover : MonoBehaviour {
 
@@ -19,5 +20,10 @@ public class gameover : MonoBehaviour {
 	void Update () {
 		Debug.Log (highscore);
 		scoreText.text = highscore.ToString("####")+ "  seconds";
+
+		if (Input.GetKey (KeyCode.Space)) {
+			SceneManager.LoadScene ("MainScene");
+		
+		}
 	}
 }
