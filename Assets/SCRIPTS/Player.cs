@@ -15,7 +15,6 @@ public class Player : MonoBehaviour {
 	SpriteRenderer spriteRenderer;
 	public TickingClock timer;
 
-
 	public Text scoreText;
 	public static int score = 0;
 
@@ -98,6 +97,7 @@ public class Player : MonoBehaviour {
 		if (CollisionInfo.gameObject.tag == "DangerousCreatures") {
 			if (spriteRenderer.sprite == Attackplayer) {
 				Destroy (CollisionInfo.gameObject);
+				timer.DecreaseShark ();
 				hitSound.Play ();
 			} 
 

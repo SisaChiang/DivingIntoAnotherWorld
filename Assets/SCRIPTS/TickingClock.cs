@@ -17,6 +17,8 @@ public class TickingClock : MonoBehaviour {
 	public static string highscoreKey = "High Score:";
 	public float highScore;
 
+
+
 	// Use this for initialization
 	void start () {
 
@@ -42,18 +44,37 @@ public class TickingClock : MonoBehaviour {
 			PlayerPrefs.SetFloat (highscoreKey, score);
 			PlayerPrefs.Save();
 		}
-		if (score > 30f && sharkSpawn < 7) {
+		if (score < 30f) {
+
+			if (sharkSpawn < 4) {
 			
-			Instantiate (sharkPrefab, new Vector3 (Random.Range(-20.6f,15.6f),Random.Range(-20.6f,20.6f),Random.Range(-20.6f,20.6f)), Quaternion.identity);
-			sharkSpawn += 5;
-
-			if (score> 30f){
-				sharkSpawn = 10;
-				Debug.Log ("yes");
+				Instantiate (sharkPrefab, new Vector3 (Random.Range (-20.6f, 15.6f), Random.Range (-20.6f, 20.6f), Random.Range (-20.6f, 20.6f)), Quaternion.identity);
+				sharkSpawn ++;
+				Debug.Log ("SHARKS");
 			}
+		}
+		else if (score < 60f) {
+			if (sharkSpawn < 6) {
+				
+				Instantiate (sharkPrefab, new Vector3 (Random.Range (-20.6f, 15.6f), Random.Range (-20.6f, 20.6f), Random.Range (-20.6f, 20.6f)), Quaternion.identity);
+				sharkSpawn ++;
+				Debug.Log ("SHARKS222");
+			}
+		}
 
+		else {
+			if (sharkSpawn < 10) {
+				Instantiate (sharkPrefab, new Vector3 (Random.Range (-20.6f, 15.6f), Random.Range (-20.6f, 20.6f), Random.Range (-20.6f, 20.6f)), Quaternion.identity);
+				sharkSpawn++;
+				Debug.Log ("SHARKCOMING!!!");
+			}
 		}
 
 
 	}
+
+	public void DecreaseShark(){
+		sharkSpawn--;
+	}
+
 }
