@@ -16,6 +16,7 @@ public class TickingClock : MonoBehaviour {
 
 	public static string highscoreKey = "High Score:";
 	public float highScore;
+	public Player player;
 
 
 
@@ -35,6 +36,7 @@ public class TickingClock : MonoBehaviour {
 		}
 		if (timeLeft <= 5) {
 			text.text = "Warning: " + timeLeft.ToString ("####"); 
+			player.BubParticles ();
 		}
 		if (timeLeft > 0) {
 			score += Time.deltaTime;

@@ -25,6 +25,8 @@ public class Player : MonoBehaviour {
 	public AudioSource hurtSound;
 	public AudioSource hitSound;
 
+	public ParticleSystem BubbleParticle;
+
 
 
 	// Use this for initialization
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour {
 		speed = normalSpeed;
 		timer =  this.GetComponent<TickingClock>();
 		spriteRenderer = GetComponent <SpriteRenderer> ();
+		ParticleSystem BubbleParticle = GetComponent<ParticleSystem> ();
 		
 	}
 	
@@ -54,19 +57,7 @@ public class Player : MonoBehaviour {
 
 			spriteRenderer.flipX = true;
 		}
-
-		/*if (transform.position.x >= 25f) {
-			transform.position = new Vector3 (25, transform.position.y, transform.position.z);
-		}
-		if (transform.position.x <= -25f) {
-			transform.position = new Vector3(-25,transform.position.y,transform.position.z);
-		}
-		if (transform.position.y >= 25f) {
-			transform.position = new Vector3(transform.position.x,25,transform.position.z);
-		}
-		if (transform.position.y <= -25f) {
-			transform.position = new Vector3(transform.position.x, -25, transform.position.z);
-		}*/
+			
 
 		AttackTimeLeft -= Time.deltaTime;
 		if (AttackTimeLeft <= 0) {
@@ -152,6 +143,10 @@ public class Player : MonoBehaviour {
 		}
 
 
+	}
+
+	public void BubParticles(){
+		if (!BubbleParticle.isPlaying)BubbleParticle.Play ();
 	}
 		
 }
